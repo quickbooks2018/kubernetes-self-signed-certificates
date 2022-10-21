@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer                      # Note: Scope of issuer is specific to namespace & ClusterIssuer is Cluster wide (which means you have to create ca-secrets in all namespaces, if you use ClusterIssuer you have to create ca-secret in only cert-manager namespace.)
+metadata:
+  name: issuer
+  namespace: app
+spec:
+  ca:
+    secretName: ca-secret      # add ca.crt & ca.key
+
+
+    # kubectl get issuer -n app
+    # kubectl describe issuer/issuer -n app

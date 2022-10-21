@@ -1,8 +1,0 @@
-apiVersion: cert-manager.io/v1
-kind: Issuer                      # Note: Scope of issuer is specific to namespace & ClisterIssuer is Cluster wide
-metadata:
-  name: issuer
-  namespace: app
-spec:
-  ca:
-    secretName: ca-secret      # add ca.crt & ca.key

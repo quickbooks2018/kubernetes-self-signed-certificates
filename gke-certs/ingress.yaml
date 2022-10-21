@@ -1,0 +1,46 @@
+# ingress.yaml
+# https://github.com/kubernetes/ingress-nginx/blob/main/docs/examples/auth/client-certs/ingress.yaml
+# https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-multi-ssl#google-managed-certs_1
+# https://www.reddit.com/r/googlecloud/comments/mn8bik/is_it_allowed_to_use_gke_managed_and_self_managed/
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-ingress
+  namespace: blue
+  annotations:
+    # This tells Google Cloud to create an External Load Balancer to realize this Ingress
+    kubernetes.io/ingress.class: gce
+    # This enables HTTP connections from Internet clients
+    kubernetes.io/ingress.allow-http: "false"
+    # This tells Google Cloud to associate the External Load Balancer with the static IP which we created earlier
+    kubernetes.io/ingress.global-static-ip-name: cloudgeeks-ip
+    # networking.gke.io/managed-certificates: "FIRST_CERT_NAME,SECOND_CERT_NAME"
+    # ingress.gcp.kubernetes.io/pre-shared-cert: "self-managed-cert"
+    ingress.gcp.kubernetes.io/pre-shared-cert: "cloudgeeks"
+  
+spec:
+  rules:
+  - host: blue.cloudgeeks.tk
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - blue.cloudgeeks.tk
+    secretName: cloudgeeks # use same name ingress.gcp.kubernetes.io/pre-shared-cert: "cloudgeeks"
+
+ # gcloud compute ssl-certificates list --project playground-s-11-0ef59a20
+
+ # gcloud compute addresses list --project playground-s-11-0ef59a20
+
+ # kubectl get ingress -n blue      
+
+ # kubectl describe ingress/web-ingress -n blue
+
+ 
