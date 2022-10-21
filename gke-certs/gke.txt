@@ -1,8 +1,8 @@
 # https://cert-manager.io/docs/tutorials/getting-started-with-cert-manager-on-google-kubernetes-engine-using-lets-encrypt-for-ingress-ssl/
 
-gcloud compute addresses create cloudgeeks-ip --global --project playground-s-11-0ef59a20
+gcloud compute addresses create cloudgeeks-ip --global --project playground-s-11-04f1055f
 
-gcloud compute addresses list --project playground-s-11-0ef59a20
+gcloud compute addresses list --project playground-s-11-04f1055f
 
 kubectl get ingress -n app
 
@@ -24,7 +24,7 @@ kubectl get secrets/letsencrypt-production-secret -n app -o yaml
 
 # Check that the SSL certificate has been copied to Google Cloud
 
-gcloud compute ssl-certificates list --project playground-s-11-0ef59a20
+gcloud compute ssl-certificates list --project playground-s-11-04f1055f
 
 
 
