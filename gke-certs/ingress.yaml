@@ -1,4 +1,7 @@
 # ingress.yaml
+# https://gist.github.com/pydevops/c67870b567bb9b4e07b440e0a01c913b
+# https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress#summary_of_external_ingress_annotations
+# https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-multi-ssl
 # https://cloud.google.com/load-balancing/docs/ssl-certificates/self-managed-certs#console
 # https://github.com/kubernetes/ingress-nginx/blob/main/docs/examples/auth/client-certs/ingress.yaml
 # https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-multi-ssl#google-managed-certs_1
