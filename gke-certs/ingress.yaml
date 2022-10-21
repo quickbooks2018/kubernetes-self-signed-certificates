@@ -24,8 +24,6 @@ metadata:
     ingress.gcp.kubernetes.io/pre-shared-cert: "cloudgeeks"
   
 spec:
-  tls:
-  - secretName: cloudgeeks
   rules:
   - host: blue.cloudgeeks.tk
     http:
